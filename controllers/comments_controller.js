@@ -26,7 +26,6 @@ export const CommentsController = {
         select: ['username', '_id']
       })
 
-      console.log(allComments)
       res.status(200).json(allComments)
     } catch (err) {
       console.log(err)
