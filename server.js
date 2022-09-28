@@ -60,5 +60,5 @@ mongoose.connection.on('connected', () => {
 const PORT = process.env.PORT || 8000
 app.listen(PORT, () => {
   connect() 
-  console.log('Connected to backend')
+  console.log('server running on port', PORT)
 })
