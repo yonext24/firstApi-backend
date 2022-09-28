@@ -36,8 +36,8 @@ export const AuthController = {
       const { password, isAdmin, ...otherDetails } = user._doc
 
       res.cookie('access_token', token, {
-        httpOnly: false,
-        SameSite: 'None',
+        httpOnly: true,
+        sameSite: 'none',
         secure: true, 
       }).status(200).json({ details: {...otherDetails}, isAdmin },)
     } catch(err) {
