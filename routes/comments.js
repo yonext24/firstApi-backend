@@ -20,7 +20,6 @@ router.delete('/comments/:id', verifyToken ,verifyUser , CommentsController.dele
 
 router.get('/comments', CommentsController.getAll)
 
-
 router.delete('/comments/:id/dislike', verifyToken, CommentsController.delDisLike)
 
 router.delete('/comments/:id/like', verifyToken, CommentsController.delLike)
