@@ -39,6 +39,7 @@ export const AuthController = {
         httpOnly: true,
         sameSite: 'none',
         secure: true, 
+        domain: process.env.DOMAIN || 'http://localhost:3000'
       }).status(200).json({ details: {...otherDetails}, isAdmin })
     } catch(err) {
       next(err)

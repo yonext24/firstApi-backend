@@ -19,17 +19,16 @@ const connect = async () => {
     throw error
   }
 }
-app.set('trust proxy', 1)
 
 // middlewares
 app.use(function(req, res, next) {  
-  res.header('Access-Control-Allow-Origin', process.env.CLIENT || 'http://localhost:3000');
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Credentials', 'true')
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   return next();
 });  
 app.use(cors({
-  origin: process.env.CLIENT || 'http://localhost:3000'
+  origin: 'http://localhost:3000'
 }))
 
 app.use(express.json())
@@ -59,7 +58,7 @@ mongoose.connection.on('connected', () => {
 })
 
 const PORT = process.env.PORT || 8800
-app.listen(8800, () => {
+app.listen(PORT, () => {
   connect() 
   console.log('server running on port', PORT)
 })
