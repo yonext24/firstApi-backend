@@ -39,7 +39,7 @@ export const AuthController = {
         httpOnly: true,
         sameSite: 'none',
         secure: true, 
-        domain: '.adorable-panda-7d06e6.netlify.app/'
+        domain: 'adorable-panda-7d06e6.netlify.app/'
       }).status(200).json({ details: {...otherDetails}, isAdmin })
     } catch(err) {
       next(err)
