@@ -39,7 +39,7 @@ export const AuthController = {
         httpOnly: true,
         sameSite: 'none',
         secure: true, 
-        domain: process.env.DOMAIN || 'http://localhost:3000'
+        domain: process.env.DOMAIN || 'https://adorable-panda-7d06e6.netlify.app/'
       }).status(200).json({ details: {...otherDetails}, isAdmin })
     } catch(err) {
       next(err)
