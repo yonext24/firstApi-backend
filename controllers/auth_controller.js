@@ -35,11 +35,15 @@ export const AuthController = {
 
       const { password, isAdmin, ...otherDetails } = user._doc
 
+      // Im doing this because i wasn't able to set the cookie on production
+      res.set({
+        'cookie': token
+      })
       res.cookie('access_token', token, {
-        httpOnly: true,
+        httpOnly: false,
         sameSite: 'none',
         secure: true, 
-        domain: 'adorable-panda-7d06e6.netlify.app/'
+        // domain: 'adorable-panda-7d06e6.netlify.app/',
       }).status(200).json({ details: {...otherDetails}, isAdmin })
     } catch(err) {
       next(err)
