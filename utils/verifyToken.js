@@ -3,7 +3,7 @@ import Comment from '../models/Comment.js'
 import { createError } from './errorHandler.js'
 
 export const verifyToken = (req, res, next) => {
-  const token = req.cookies.access_token
+  const token = req.headers.cookie || req.cookies.access_token
   console.log(req.cookies)
   if (!token) {
     return next(createError(401, 'You are not logged!'))
