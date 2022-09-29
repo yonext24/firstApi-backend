@@ -4,7 +4,8 @@ import { createError } from './errorHandler.js'
 
 export const verifyToken = (req, res, next) => {
   const token = req.xxxxx || req.headers.xxxxx || req.cookies.access_token
-  console.log(req.cookies)
+  console.log(token)
+  console.log(req)
   if (!token) {
     return next(createError(401, 'You are not logged!'))
   }
