@@ -33,7 +33,7 @@ export const AuthController = {
 
       const token = jwt.sign({ id: user.id, isAdmin: user.isAdmin }, process.env.JWT)
 
-      const { password, isAdmin, ...otherDetails } = user._doc
+      const { password, ...otherDetails } = user._doc
 
       // Im doing this because i wasn't able to set the cookie on production
       res.set({
@@ -44,7 +44,7 @@ export const AuthController = {
         sameSite: 'none',
         secure: true, 
         // domain: 'adorable-panda-7d06e6.netlify.app/',
-      }).status(200).json({ details: {...otherDetails}, isAdmin })
+      }).status(200).json({ details: {...otherDetails } })
     } catch(err) {
       next(err)
     }

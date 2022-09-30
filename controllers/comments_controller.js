@@ -24,8 +24,13 @@ export const CommentsController = {
       const allComments = await Comment.find().populate({
         path: 'author',
         select: ['username', '_id']
+      }).populate({
+        path: 'replies',
+        populate: {
+          path: 'author',
+          select: ['username', '_id']
+        }
       })
-
       res.status(200).json(allComments)
     } catch (err) {
       console.log(err)
