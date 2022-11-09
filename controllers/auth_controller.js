@@ -20,6 +20,7 @@ export const AuthController = {
 
     } catch(err) {
       next(err)
+      
     }
   },
 
